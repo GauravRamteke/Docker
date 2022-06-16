@@ -1,0 +1,41 @@
+The data dosent persist when that container no longer exists 
+and it can be difficult to get the data out of the container if another process needs it.
+
+A container's writable layer is tightly coupled to the host machine where the container is running.
+you cant easily move the data somewhere else.
+
+Docker has two options for containers to store files in the host machine.
+
+- Volumes
+   managed by docker (/var/lib/docker/volumes/  )  on linux.
+   
+- Bind Mounts
+   Stored anywhere on the host system
+   
+   
+   
+Ex: 
+   
+ Step 1
+   
+    docker pull mysql:5.7
+   
+ Step 2
+   
+   run command   
+     docker images
+REPOSITORY   TAG       IMAGE ID       CREATED       SIZE
+mysql        5.7       2a0961b7de03   2 weeks ago   462MB
+
+docker inspect mysql:5.7
+
+We have to check the following -
+Container ID
+Hosts
+Exposed port
+ENV
+Volumes
+CMD
+Entrypoint
+
+
