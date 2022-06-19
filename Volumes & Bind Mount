@@ -1,0 +1,35 @@
+Volumes
+
+Its a wrapper wherein In the Docker volumes directory, It will create a directory and it will attach that to your container.
+Any data in the container directory will be stored in the volumes in your host machines.
+The Directory is (/var/lib/docker/volumes/   in linux)  it is managed by Docker.
+
+
+Bind Mount
+
+You can take any directory in host machine and map it to the container directory.
+It is called Bind Mount/
+Use case is when you make changes to the data in bind directory, it will reflect in container directory.
+
+
+Ex:
+docker run --name testdb -d -e MYSQL_ROOT_PASSWORD=testdb -p 3030:3306 -v /home/vagrant/testdb:/var/lib/mysql mysql:5.7
+Where => "-v /home/vagrant/testdb:/var/lib/mysql mysql:5.7" mapped doker host  directory as volume in container directory "var/lib/mysql"
+
+to login in container and check the volume run 
+docker exec -it testdb /bin/bash
+
+
+
+docker volume
+
+Usage:  docker volume COMMAND
+
+Manage volumes
+
+Commands:
+  create      Create a volume
+  inspect     Display detailed information on one or more volumes
+  ls          List volumes
+  prune       Remove all unused local volumes
+  rm          Remove one or more volumes
